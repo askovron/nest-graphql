@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Assignee {
+  id: Int!
+  name: String!
+  todos: [Todo!]
+}
+
+type Todo {
+  id: Int!
+  name: String!
+  completed: Boolean
+  createdAt: String
+  assigneeId: Int!
+  assignee: Assignee!
+}
+
+type Query {
+  todos: [Todo!]!
+  todo(id: Int!): Todo!
+  assignees: [Assignee!]!
+  assignee(id: Int!): Assignee!
+}
+
+type Mutation {
+  addTodo(addTodoInput: AddTodoInput!): Todo!
+  createAssignee(createAssigneeInput: CreateAssigneeInput!): Assignee!
+  updateAssignee(updateAssigneeInput: UpdateAssigneeInput!): Assignee!
+  removeAssignee(id: Int!): Assignee!
+}
+
+input AddTodoInput {
+  name: String!
+  assigneeId: Int!
+}
+
+input CreateAssigneeInput {
+  name: String!
+}
+
+input UpdateAssigneeInput {
+  name: String!
+  id: Int!
+}
